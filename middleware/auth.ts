@@ -1,7 +1,21 @@
-const isLogged = true
-export default function ({ store, redirect }: { store: any, redirect: any }) {
-  console.log(store.state.login.token)
-  if (!isLogged) {
-    return redirect('/')
+// eslint-disable-next-line import/named
+import { NuxtAxiosInstance } from '@nuxtjs/axios'
+import { storeLogin } from '../store/store'
+
+export default function ({ $http, redirect }: { $http: NuxtAxiosInstance, redirect: any }) {
+  // SCR
+  if (!process.server) {
+    if (!storeLogin().getToken) {
+      return redirect('/')
+    }
+  } else {
+    // SSR
+    // auth-check
+    return $http.get('/user')
+      .then((resp: any) => {
+        if (process.env.TOKEN !== resp.data.token) {
+          redirect('/')
+        }
+      })
   }
 }

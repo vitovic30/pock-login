@@ -1,14 +1,16 @@
 <template>
   <div>
     <nuxt-link to="/">
-      Home page
+      Dashboard Page
     </nuxt-link>
   </div>
 </template>
 
 <script>
-export default {
+import { defineComponent } from '@nuxtjs/composition-api'
+
+export default defineComponent({
   name: 'DashboardPage',
   middleware: 'auth'
-}
+})
 </script>

@@ -1,11 +1,12 @@
 <template>
-  <div class="col col-sm-8 col-md-6 col-lg-4">
+  <div class="col col-sm-8 col-md-6 col-lg-4" data-cy="loginForm">
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Digite seu Email</label>
       <input
         id="exampleFormControlInput1"
         ref="emails"
         v-model="email"
+        data-cy="inputEmail"
         class="form-control"
         placeholder="name@example.com"
         type="email"
@@ -16,7 +17,14 @@
     </div>
     <div class="mb-3">
       <label for="inputPassword5" class="form-label">Password</label>
-      <input id="inputPassword5" v-model="password" type="password" class="form-control" aria-labelledby="passwordHelpBlock">
+      <input
+        id="inputPassword5"
+        v-model="password"
+        type="password"
+        data-cy="inputEmail"
+        class="form-control"
+        aria-labelledby="passwordHelpBlock"
+      >
     </div>
     <div class="mb-3">
       <b-button variant="primary" @click="acessar()">
@@ -31,6 +39,7 @@ import { ref, reactive } from 'vue'
 import { useContext, defineComponent, useRouter } from '@nuxtjs/composition-api'
 import { storeLogin } from '../store/store'
 import { validEmail } from '../utils'
+
 export default defineComponent({
   name: 'LoginComponent',
   setup () {
@@ -57,7 +66,9 @@ export default defineComponent({
 
       // @ts-ignore:next-line
       store.login(context, payload)
-        .finally(() => router.push('/dashboard'))
+        .finally(() => {
+          router.push({ path: '/dashboard' })
+        })
     }
 
     function removeValidation (ref: HTMLElement) {

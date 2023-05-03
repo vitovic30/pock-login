@@ -6,12 +6,12 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
+import { storeLogin } from '../store/store'
+
 export default defineComponent({
   name: 'DefaultLayout',
   onIdle () {
-    console.log(1)
-    const isLogged = true
-    if (this.$route?.path !== '/' && isLogged) {
+    if (this.$route?.path !== '/' && storeLogin().getToken) {
       this.$router.push('/')
     }
   }
@@ -24,6 +24,6 @@ export default defineComponent({
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  @media screen and (max-width: 720px) { flex-flow: row;}
+  @media screen and (max-width: 720px) { flex-flow: row; }
 }
 </style>

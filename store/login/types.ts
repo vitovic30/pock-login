@@ -1,5 +1,5 @@
 export type TState = {
-  token: string
+  token: string | any
 }
 
 export type TGetters<T> = {
@@ -12,6 +12,5 @@ export type TPayloadLogin = {
 }
 
 export type TActions<T, P> = {
-  [x: string]: any
   login: ({ $http }: { $http: T }, payload: TPayloadLogin) => Promise<P>
 }
