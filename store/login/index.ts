@@ -7,7 +7,7 @@ import { TConfig } from '~/types'
 
 export default {
   state: (): TState => ({
-    token: ''
+    token: useSessionStorage('token', '')
   }),
   getters: <TGetters<string>> {
     getToken: (state: TState) => state.token
@@ -19,7 +19,6 @@ export default {
           .then((resp: any) => {
             if (resp?.status === 201) {
               this.token = $config.TOKEN
-              useSessionStorage('token', $config.TOKEN)
               $http.post('/user', { token: $config.TOKEN })
               resolve(resp)
             } else {
