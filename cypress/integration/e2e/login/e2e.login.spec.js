@@ -9,6 +9,7 @@ describe('Platform navigation user history', () => {
   it('Action of fill in user and password', () => {
     cy.get('[data-cy=inputEmail]').type('vi_dualcore@hotmail.com', 'text')
     cy.get('[data-cy=inputPassword]').type('dualcore', 'password')
+    cy.get('[data-cy=submitLogin]').should('not.have.class', 'disabled')
     cy.get('[data-cy=submitLogin]').click()
   })
 
