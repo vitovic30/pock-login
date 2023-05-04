@@ -21,13 +21,13 @@
         id="inputPassword5"
         v-model="password"
         type="password"
-        data-cy="inputEmail"
+        data-cy="inputPassword"
         class="form-control"
         aria-labelledby="passwordHelpBlock"
       >
     </div>
     <div class="mb-3">
-      <b-button variant="primary" @click="acessar()">
+      <b-button variant="primary" data-cy="submitLogin" @click="acessar()">
         Acessar
       </b-button>
     </div>

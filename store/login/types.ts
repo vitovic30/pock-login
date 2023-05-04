@@ -12,5 +12,6 @@ export type TPayloadLogin = {
 }
 
 export type TActions<T, P> = {
+  logout: ({ $http }: { $http: T, }) => Promise<any>,
   login: ({ $http }: { $http: T }, payload: TPayloadLogin) => Promise<P>
 }

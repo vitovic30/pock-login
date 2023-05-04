@@ -1,0 +1,10 @@
+{
+  "login": {
+    "inputEmail": "[data-cy=inputEmail]",
+    "inputPassword": "[data-cy=inputPassword]",
+    "submitButton": "[data-cy=submitLogin]"
+  },
+  "dashboard": {
+    "textLink": "[data-cy=nuxt-link]"
+  }
+}

@@ -5,14 +5,20 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, useContext } from '@nuxtjs/composition-api'
 import { storeLogin } from '../store/store'
 
 export default defineComponent({
   name: 'DefaultLayout',
+  setup () {
+    const context = useContext()
+    return {
+      context
+    }
+  },
   onIdle () {
     if (this.$route?.path !== '/' && storeLogin().getToken) {
-      this.$router.push('/')
+      storeLogin().logout(this.context)
     }
   }
 })

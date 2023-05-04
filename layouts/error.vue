@@ -11,7 +11,7 @@
       <p class="lead">
         A página que você está procurando não existe.
       </p>
-      <NuxtLink class="btn btn-primary" to="/dashboard">
+      <NuxtLink data-cy="go-home" class="btn btn-primary" to="/dashboard">
         Go Home
       </NuxtLink>
     </div>

@@ -1,9 +1,9 @@
 {
   "login": {
-    "email": "04120441610",
-    "password": "ctbc2016"
+    "email": "vi_dualcore@hotmail.com",
+    "password": "********"
   },
   "user": {
-    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlZpdG9yIiwiYWRtaW4iOnRydWUsImlhdCI6MTY4MzA1ODcwOCwiZXhwIjoxNjgzMDYyMzA4fQ.cszYQEiPKfcRWErtF9ugStAsuK3V5C9GjUqSyqt88H8"
+    "token": null
   }
 }

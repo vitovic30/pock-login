@@ -2,7 +2,7 @@
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { useSessionStorage } from '@vueuse/core'
 import { TState, TGetters, TActions, TPayloadLogin } from './types'
-import { auth } from '@/services/AuthService'
+import { auth, userLogout } from '@/services/AuthService'
 import { TConfig } from '~/types'
 
 export default {
@@ -20,7 +20,22 @@ export default {
             if (resp?.status === 201) {
               this.token = $config.TOKEN
               useSessionStorage('token', $config.TOKEN)
+              $http.post('/user', { token: $config.TOKEN })
               resolve(resp)
+            } else {
+              reject(resp)
+            }
+          })
+      })
+    },
+    logout ({ $http, redirect }: { $http: NuxtAxiosInstance, redirect: any }) : Promise<any> {
+      return new Promise<any>((resolve, reject) => {
+        userLogout($http)
+          .then((resp: any) => {
+            if (resp?.status === 201) {
+              sessionStorage.removeItem('token')
+              resolve(resp)
+              redirect('/')
             } else {
               reject(resp)
             }
