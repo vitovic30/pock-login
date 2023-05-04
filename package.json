@@ -11,6 +11,7 @@
     "lint": "npm run lint:js",
     "lintfix": "npm run lint:js -- --fix",
     "test": "jest",
+    "watch:db":"json-server --watch db.json --port=8080",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run"
   },
