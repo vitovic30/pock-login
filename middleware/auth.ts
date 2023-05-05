@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/named
 import { NuxtAxiosInstance } from '@nuxtjs/axios'
 import { storeLogin } from '../store/store'
+import { decryptHASH } from '~/utils'
 
 export default function ({ $http, redirect, req }: { $http: NuxtAxiosInstance, redirect: any, req: any }) {
   // SCR
@@ -9,7 +10,7 @@ export default function ({ $http, redirect, req }: { $http: NuxtAxiosInstance, r
       return redirect('/')
     }
   } if (process.server) {
-    const tokenCookie = req.headers.cookie && req.headers.cookie.split('authToken=')[1]
+    const tokenCookie = decryptHASH(req.headers.cookie && req.headers.cookie.split('$nuxtKey=')[1])
     // SSR
     // auth-check
     return $http.get('/user')
