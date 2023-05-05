@@ -4,9 +4,9 @@ export const validEmail = (text: string): Boolean => {
 }
 
 export const setCookie = (token: string): void => {
-  document.cookie = 'token=' + token
+  document.cookie = 'authToken=' + token
 }
 
 export const removeCookie = (): void => {
-  document.cookie = 'token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT'
+  document.cookie = 'authToken= ; expires = Thu, 01 Jan 1970 00:00:00 GMT'
 }

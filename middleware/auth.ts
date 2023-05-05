@@ -9,7 +9,7 @@ export default function ({ $http, redirect, req }: { $http: NuxtAxiosInstance, r
       return redirect('/')
     }
   } if (process.server) {
-    const tokenCookie = req.headers.cookie && req.headers.cookie.split('token=')[1]
+    const tokenCookie = req.headers.cookie && req.headers.cookie.split('authToken=')[1]
     // SSR
     // auth-check
     return $http.get('/user')
