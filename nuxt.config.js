@@ -1,5 +1,4 @@
 export default {
-  ssr: false,
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'pock-login',
@@ -16,6 +15,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
   publicRuntimeConfig: {
     API_BASE_URL: process.env.BASE_URL_API,
     NODE_ENV: process.env.NODE_ENV,
